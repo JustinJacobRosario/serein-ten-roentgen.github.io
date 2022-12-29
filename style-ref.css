@@ -1,0 +1,120 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+p {
+ margin: 0px;
+}
+body {
+    background-color: rgb(224, 223, 216);
+       
+}
+
+
+.frontpage {
+    
+    height: 780px;
+}
+.secondpage {
+    background-color: rgb(184, 183, 176);
+    height: 780px;
+}
+.thirdpage {   
+    height: 780px;
+}
+
+
+nav {
+    transform:translate(0px, -30px);
+    display: grid;
+    grid-template-columns: 2fr 3fr 1fr;
+    font-weight: 700;
+}
+nav div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    float: left;
+}
+nav img {
+    height: 200px;
+    float: left;
+
+    
+}
+#home, #about, #accomplishment, #ewan-q {
+    text-decoration: none;
+    color: rgb(35, 31, 32);
+/*transition: property duration style delay*/
+    transition: all 300ms ease 100ms;
+}
+#home:hover {
+    text-decoration: none;
+    color: rgb(80, 80, 80);
+    scale: 1.08;
+}
+#about:hover {
+    text-decoration: none;
+    color: rgb(80, 80, 80);
+    scale: 1.08;
+}
+#accomplishment:hover {
+    text-decoration: none;
+    color: rgb(80, 80, 80);
+    scale: 1.08;
+}
+#ewan-q:hover {
+    text-decoration: none;
+    color: rgb(80, 80, 80);
+    scale: 1.08;
+}
+
+ngjn
+
+#page-content {
+    animation-name: intro;
+    animation-duration: 800ms;
+    animation-timing-function: ease-out;
+}
+
+@keyframes intro {
+    0% {
+        transform: translate(0px, -300px);
+        scale: 1.05;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        scale:1
+    }
+}
+
+
+
+.wrapper {
+    
+    display: 
+}
+.text-content {
+    text-align: justify;
+    padding: 10px 60px;
+    background-color: rgb(214, 211, 201);
+    border-radius: 30px;
+    height: 570px;
+    
+}
+
+h1 {
+    text-align: center;
+}
+
+a {
+    font-family: Tahoma, sans-serif;
+    text-decoration: none;
+    transition: all 500ms ease;
+    
+}
+a:hover {
+    font-size: 105%;
+}

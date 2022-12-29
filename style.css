@@ -45,19 +45,19 @@ video {
 }
 
 
-.menu {
+nav {
     transform:translate(0px, -30px);
     display: grid;
     grid-template-columns: 3fr 1fr 3fr;
     font-weight: 700;
     transform: translate(0px, 20px);
 }
-.menu div {
+nav div {
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-.menu img {
+nav img {
     height: 200px;
 
     
@@ -65,7 +65,7 @@ video {
 #home, #about, #accomplishment, #ewan-q {
     text-decoration: none;
     color: rgb(35, 31, 32);
-/* transition: property duration style delay*/
+/*transition: property duration style delay*/
     transition: all 300ms ease 100ms;
 }
 #home:hover {
