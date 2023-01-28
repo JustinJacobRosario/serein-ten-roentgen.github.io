@@ -1,8 +1,60 @@
+/* 
+Table of Contents: 
+
+-general declarations
+-pop-up message
+header banner
+menu-button
+music-button (for mapeh)
+page-bar
+- pages
+- frontpage contents
+
+*/
+
+
+/* General Declarations */
+#page-content {
+    animation-name: intro;
+    animation-duration: 800ms;
+    animation-timing-function: ease-out;
+    transform: translate(0px, 50px);
+
+
+    background-image: url(images/bg.png);
+    background-size: 100%;
+}
+
+@keyframes intro {
+    0% {
+        transform: translate(0px, -300px);
+        scale: 1.05;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        scale:1
+    }
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background: rgb(201, 196, 177);
+
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(rgb(79, 20, 13), rgb(135, 42, 10),  rgb(167, 95, 26), rgb(167, 95, 26));
+    border: 3px rgb(201, 196, 177) solid;
+    border-radius: 50px;
+   
+}
 * {
     box-sizing: border-box;
     font-family: sans-serif;
     padding: 0px;
     scroll-behavior: smooth;
+
 }
 
 ul {
@@ -14,13 +66,15 @@ p {
  margin: 0px;
 }
 body {
-    background-color: rgb(224, 223, 216);
+    
+
+    
     margin: 0;
     padding: 0;
     
 }
 
-
+/*Pop-up Message*/
 .popup {
     background-image: url(images/speech-bubble.png);
     background-size: cover;
@@ -59,12 +113,12 @@ top: 3%;
         opacity: 0;
     }
 }
-
+/* Header Banner */
 #header-banner {
     width: 100%;
     height: 50px;
-    background: linear-gradient(to right, rgb(53, 85, 150), rgb(117, 144, 184), rgb(117, 144, 184), rgb(53, 85, 150));
-    background-size: 400% 400%;
+    background: linear-gradient(to right, rgb(164, 54, 11), rgb(208, 150, 63),  rgb(208, 150, 63), rgb(164, 54, 11));
+    background-size: 200% 200%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -75,18 +129,11 @@ top: 3%;
 
     animation: header-banner 10s infinite ease-in-out;
 
-    border-bottom: 3px black solid;
+    border-bottom: 3px white solid;
 }
-#left-head, #right-head {
-    background:rgba(37, 37, 84, 70%);
-   
-    height: 50px;
-    width: 7%;
-    display: flex;
-    align-items: center;
-    min-width: 50px;
-    
-}
+
+
+/* Menu Button */
 .menu-button {
     list-style: none;
     
@@ -96,26 +143,23 @@ top: 3%;
     list-style: none;
     
 }
-
 #menu-but-img {
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 37px;
     margin: 10px 0px 5px 10px;
     transition: all 300ms ease;
 }
-#menu-but-img:hover {
-    scale: 1.05;
-    rotate: 90deg;
-}
+
+
 .menu-button li ul {
     display: flex;
     flex-direction: column;
     position: absolute;
+    
     background-color: rgba(199, 194, 176, 90%);
     margin: -3px 0px 0px 0px;
     
     
-
     visibility: hidden;
     opacity: 0;
     transition: visibility 500ms, opacity 150ms linear;
@@ -128,9 +172,9 @@ top: 3%;
 .menu-button li ul li {
     
     list-style: none;
-    border-top: rgba(34, 41, 71, 50%) solid 2px;
-    border-left: rgba(34, 41, 71, 90%) solid 30px;
-
+    border-top: rgba(92, 23, 17, 50%) solid 2px;
+    border-left: rgba(92, 23, 17, 90%) solid 30px;
+    height: 48px;
     padding: 10px 50px 10px 20px;
 
 }
@@ -147,7 +191,7 @@ top: 3%;
 }
 .menu-button li a:hover {
     cursor: pointer;
-    font-size: 23px;
+    font-size: 21px;
     display: flex;
     flex-direction: column;
 }
@@ -155,7 +199,7 @@ top: 3%;
     transition: all 300ms ease;
 }
 
-
+/* Music-Button */
 .music-button {
     list-style: none;
     
@@ -229,39 +273,51 @@ top: 3%;
 
 
 #page-bar {
-    width: 300px;
-    border: rgb(5, 10, 48) solid 2px;
-    border-radius: 20px;
-    padding: 2px 20px;
-    background-color: rgba(56, 65, 107, 50);
     display: flex;
-    justify-content: space-around;
-    align-items: center;
-    font-weight: 600;
-    color: rgb(224, 223, 216);
+    gap: 90px;
+    text-shadow: 0 0px 20px white;
+    
     
 }
 #page-bar a {
     display: inline-block;
     text-decoration: none;
-    border: rgb(5, 10, 48) solid 3px;
     border-radius: 40px;
     padding: 0px 6px;
-    background-color: lightblue;
     transition: all 300ms ease;
-}
-#page-bar a:hover {
-    scale: 1.1;
-    background-color: rgb(209, 230, 237);
     
 }
+#home:hover {
+    text-decoration: none;
+    scale: 1.08;
+    color: snow;
+}
+#about:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
+#accomplishment:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
+#gallery:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
+#reference:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
 #page-bar a:link {
-    color: rgb(5, 10, 48);
+    color: white;
 }
 #page-bar a:visited {
-    color: rgb(5, 10, 48);
+    color: white;
 }
-
 
 
 
@@ -275,17 +331,121 @@ background-position: 0 50%;
     100%{
         background-position: 0 50%
     }
+} 
+
+
+#eng-tab:hover ~ #img-eng {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+#ap-tab:hover ~ #img-ap {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+#phy-tab:hover ~ #img-physics {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+#nuc-tab:hover ~ #img-nuclear {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+#jor-tab:hover ~ #img-journ {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+#spe-tab:hover ~ #img-speech {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+
+div[id*="img-"] {
+    border-left: brown 20px;
+    border-style:groove;
+    opacity: 0;
+}
+
+#img-eng {
+    height: 260px;
+    width: 476px;
+    background:url(https://www.itepexam.com/wp-content/uploads/2021/01/English-Grammar.jpg);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -35px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+#img-ap {
+    height: 260px;
+    width: 476;
+    background:url(https://blogger.googleusercontent.com/img/a/AVvXsEitln7SzOk6pW4yIHReu8WVIC_wl_8MQmS_bkIrb9xGSN41s801nYSvOmYlhjSJhf2r46oKTe6_IPdgFLIEoY9_dx-roJDecQ5QIDQ8fLAbxlfjMUxZOjNTKgx5KVpdmoADhogsh01gJoe9DWGH4QTRaHw7IWTW2bhhFEl-fLXd23-9yTfBWk7N7oS2Ew=w400-h225);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -74px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+#img-physics {
+    height: 260px;
+    width: 476;
+    background:url(https://images.theconversation.com/files/191827/original/file-20171025-25516-g7rtyl.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=675.0&fit=crop);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -118px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+#img-nuclear {
+    height: 260px;
+    width: 476;
+    background:url(https://cdn1.byjus.com/wp-content/uploads/2018/12/nuclear-chemistry.png);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -162px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+#img-journ {
+    height: 260px;
+    width: 476;
+    background:url(https://www.rappler.com/tachyon/2020/07/being-a-journalist.jpg);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -206px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+#img-speech {
+    height: 260px;
+    width: 476;
+    background:url(https://www.learner.net/z-media/2021/09/42-scaled.jpg);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -250px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
 }
 
 
-
+/* Pages */
 .frontpage {
-    
-    transform: translate(0px, 0px);
-    height: 768px;
+    height: 740px;
+    border-bottom: 3px black solid;
 }
 .secondpage {
-    background-color: rgb(184, 183, 176);
+    
     height: 710px;
 }
 .thirdpage {   
@@ -293,60 +453,19 @@ background-position: 0 50%;
 }
 
 
-nav {
-    
-    display: grid;
-    grid-template-columns: 3fr 1fr 3fr;
-    font-weight: 700;
-    
-}
-nav div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
-nav img {
-    height: 200px;
 
-    
-}
-#home, #about, #accomplishment, #ewan-q {
-    text-decoration: none;
-    color: rgb(35, 31, 32);
-/*transition: property duration style delay*/
-    transition: all 300ms ease 100ms;
-}
-#home:hover {
-    text-decoration: none;
-    color: rgb(80, 80, 80);
-    scale: 1.08;
-}
-#about:hover {
-    text-decoration: none;
-    color: rgb(80, 80, 80);
-    scale: 1.08;
-}
-#accomplishment:hover {
-    text-decoration: none;
-    color: rgb(80, 80, 80);
-    scale: 1.08;
-}
-#ewan-q:hover {
-    text-decoration: none;
-    color: rgb(80, 80, 80);
-    scale: 1.08;
-}
+/* frontpage contentss */
+
 
 .front-content {
     height: auto;
-    width: ;
-    /* background-color: red; */
-    margin-top: 60px;
 }
 #front-text {
+    
     display: flex;
     justify-content: center;
-    height: 177px;
+    align-items: center;
+    height: 80vh;
 }
 .front-content p {
     display: inline-block;
@@ -358,95 +477,8 @@ nav img {
 }
 
 
-.button1 {
-    display: flex;
-    justify-content: center;
-}
-#button1 {
-    text-decoration: none;
-    color: rgb(231, 231, 232);
-    border: rgb(5, 10, 48) solid;
-    background: none;
-    cursor: pointer;
-    font-size: 25px;
-    transition: 800ms;
-    position: relative;
-    overflow: hidden;
-
-    padding: 18px 30px;
-    border-radius: 50px;
-    transform: translate(0px, 133px);
-    /* transition: scale 300ms ease 100ms; */
-
-}
-#button1::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    border-radius: 50% 50% 0 0;
-    width: 100%;
-    height: 180%;
-    background: rgb(5, 10, 48);
-    z-index: -1;
-    transition: 800ms;
-}
-#button1:hover {
-    /* scale: 1.05; */
-    color: rgb(5, 10, 48);
-    height: 0%;
-}
-#button1:hover::before {
-    height: 0%;
-}
-
-.v-line {
-    height: 30px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    
-}
-#v-line {
-    height: 120px;
-    width: 3px;
-    background-color: black;
-    position: relative;
-    top: 131px;
-    
-}
 
 
 
 
-#page-content {
-    animation-name: intro;
-    animation-duration: 800ms;
-    animation-timing-function: ease-out;
-}
-
-@keyframes intro {
-    0% {
-        transform: translate(0px, -300px);
-        scale: 1.05;
-    }
-    100% {
-        transform: translate(0px, 0px);
-        scale:1
-    }
-}
-
-::-webkit-scrollbar {
-    width: 15px;
-    
-}
-::-webkit-scrollbar-track {
-    background-color: rgb(201, 196, 177);
-    
-}
-::-webkit-scrollbar-thumb {
-    background-color: rgb(39, 52, 115);
-    border: rgb(192, 187, 169) solid;
-    border-radius: 20px;
-}
 
