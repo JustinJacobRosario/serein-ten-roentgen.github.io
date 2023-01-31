@@ -9,6 +9,7 @@
 	{
 		background-image: url(images/morn.jfif);
         background-position: center;
+        background-attachment: fixed;
         background-size:cover;
 		padding: 0px;
         margin: 0px;
@@ -18,12 +19,13 @@
 	}
 
 	h2, p {
-		position: absolute;
+		
         text-align: justify;
 		font-size: 50px;
         font-family: tahoma, sans-serif;
-        font-weight:00;
-        padding: 0px 200px;
+        
+
+
         line-height: 50px;
       
 	}
@@ -46,6 +48,7 @@
     } */
 
     .wrap {
+        position: fixed;
         height: 100vh;
         width: 100%;
         transition: 400ms ease;
@@ -54,15 +57,29 @@
         background-size: cover;
         opacity: 0;
 
+        z-index: -1;
+
         transition: all 0.8s ease;
         /* background: skyblue; */
     }
-    .wrap2 {
-        height: 0vh;
+
+    #pages {
+        position: absolute;
+        z-index: 2;
         width: 100%;
-        transition: 400ms ease;
-        /* background: blue; */
+        height: 300vh;
+        
     }
+    .page1, .page2, .page3, .page4 {
+        height: 80vh;
+        width: 80vw;
+        transform: translate(10%, 10vh);
+        
+        margin-bottom: 50vh;
+        
+        
+    }
+    
 
     .checkbox {
         position: fixed;
@@ -84,7 +101,7 @@
     box-shadow: inset 0 0px 30px orangered, 0 0px 0px 3px rgba(255, 255, 255, 0.414);
     }
 
-#def {
+.def {
     position: absolute;
     bottom: 50%;
     opacity:0; 
@@ -109,26 +126,62 @@
     transition: .3s linear;
 }
 
-.checkbox:checked + .wrap{
-  /* background: black; */
-  color: white;
-  text-shadow: 0 0px 40px white;
-}
-.checkbox:checked + .wrap + .wrap2{
 
-  color: white;
+.checkbox:checked + .wrap + #pages .page1 .def {
+    color: white;
   text-shadow: 0 0px 40px white;
+    
+    opacity:1;
 }
-.checkbox:checked + .wrap #def {
+.checkbox:checked + .wrap + #pages .page2 .def {
+    color: white;
+  text-shadow: 0 0px 40px white;
+    
+    opacity:1;
+}
+.checkbox:checked + .wrap + #pages .page3 .def {
+    color: white;
+  text-shadow: 0 0px 40px white;
+    
+    opacity:1;
+}
+.checkbox:checked + .wrap + #pages .page4 .def {
+    color: white;
+  text-shadow: 0 0px 40px white;
+    
+    opacity:1;
+}
+
+
+.checkbox:checked + .page1 .def  {
+    color: white;
+  text-shadow: 0 0px 40px white;
+    
+    opacity:1;
+}
+.checkbox:checked + .page2 .def  {
+    color: white;
+  text-shadow: 0 0px 40px white;
+    
+    opacity:1;
+}
+.checkbox:checked + .page3 .def  {
+    color: white;
+  text-shadow: 0 0px 40px white;
+    
+    opacity:1;
+}
+.checkbox:checked + .page4 .def  {
+    color: white;
+  text-shadow: 0 0px 40px white;
+    
     opacity:1;
 }
 
 .checkbox:checked + .wrap {
-    opacity:1;
+    opacity: 1;
 }
-.checkbox:checked + body {
-    background-image: url(images/night.jpg);
-}
+
 
 
 /* moving the checkbox circle when it's toggled by the user */
@@ -141,7 +194,7 @@
     box-shadow: inset 0 0px 30px indigo, 0 0px 0px 3px rgba(255, 255, 255, 0.414);
 }
 
-    #refl {
+    .refl {
         position: absolute;
         top: 50%;
         left: 0;
@@ -162,17 +215,46 @@
         opacity: 0.9;
     }
 	</style>
+
+
 </head>
 <body>
     <input type="checkbox" class="checkbox">
-    
     <div class="wrap">
-	<p id="def">
-        People who have faith in the splendor of their dreams are those who will dominate the future. As students, we recognize the importance of taking on leadership roles as a means of developing our skills. Not everyone is born a leader. However, it can be forged through time. Leadership can be developed by oneself through experiences. Hard work and perseverance, just like success in any other endeavor, are what ultimately define a leader; that is the cost we are prepared to incur in pursuit of our vision of progress.</p>
-    <br>
     </div>
-    <div class="wrap2">
-            <p id="refl">People who have faith in the splendor of their dreams are those who will dominate the future. As students, we recognize the importance of taking on leadership roles as a means of developing our skills. Not everyone is born a leader. However, it can be forged through time. Leadership can be developed by oneself through experiences. Hard work and perseverance, just like success in any other endeavor, are what ultimately define a leader; that is the cost we are prepared to incur in pursuit of our vision of progress.</p>
+
+    <div id="pages">
+    <div class="page1">
+        <p class="def">
+            People who have faith in the splendor of their dreams are those who will dominate the future. As students, we recognize the importance of taking on leadership roles as a means of developing our skills. Not everyone is born a leader. However, it can be forged through time. Leadership can be developed by oneself through experiences. Hard work and perseverance, just like success in any other endeavor, are what ultimately define a leader; that is the cost we are prepared to incur in pursuit of our vision of progress.</p>
+        <p class="refl">People who have faith in the splendor of their dreams are those who will dominate the future. As students, we recognize the importance of taking on leadership roles as a means of developing our skills. Not everyone is born a leader. However, it can be forged through time. Leadership can be developed by oneself through experiences. Hard work and perseverance, just like success in any other endeavor, are what ultimately define a leader; that is the cost we are prepared to incur in pursuit of our vision of progress.</p>
         </div>
+    <div class="page2">
+            <p class="def">
+                Leaders—our world is hungry for them. Central to leadership is the ability to inspire colleagues to give their all in pursuit of a shared goal. Taking the initiative is a crucial first step. A strong student leader is one who can effectively balance the mental and physical demands of their position. A leader's ability to articulate his or her vision for the future is a hallmark of great leaders. To accomplish their goals, great leaders must put their egos aside and focus on the greater good of the group or the majority. They are also receptive to criticism and quick to correct their errors, so you can always count on them to help you out. 
+            </p>
+                <p class="refl">
+                Leaders—our world is hungry for them. Central to leadership is the ability to inspire colleagues to give their all in pursuit of a shared goal. Taking the initiative is a crucial first step. A strong student leader is one who can effectively balance the mental and physical demands of their position. A leader's ability to articulate his or her vision for the future is a hallmark of great leaders. To accomplish their goals, great leaders must put their egos aside and focus on the greater good of the group or the majority. They are also receptive to criticism and quick to correct their errors, so you can always count on them to help you out.
+                </p>
+            </div>
+    <div class="page3">
+                <p class="def">
+                    Their productivity is driven by their hunger for knowledge and dedication to progress. Leaders provide assistance and encouragement when they notice the worries or reluctance of others, and they take action when they realize the system could be augmented through the use of their efforts. Most importantly, they are not afraid to confess their weaknesses and instead seek out the most ingenious solutions. They also have an understanding of how to acquire skills in the real world, and a willingness to teach and be taught.
+                </p>
+                    <p class="refl">
+                    
+                    Their productivity is driven by their hunger for knowledge and dedication to progress. Leaders provide assistance and encouragement when they notice the worries or reluctance of others, and they take action when they realize the system could be augmented through the use of their efforts. Most importantly, they are not afraid to confess their weaknesses and instead seek out the most ingenious solutions. They also have an understanding of how to acquire skills in the real world, and a willingness to teach and be taught.
+            </p>
+                </div>
+                <div class="page4">
+                    <p class="def">
+                        Leadership thrives in environments where it is actively fostered. Leadership entails inspiring, persuading, and guiding others to work toward a common objective, whether that goal is specific to the team or represents the larger mission of the organization. Students benefit greatly from exposure to leadership roles in the classroom, where they can practice developing rapport within groups, articulating their individuality, and leading others to successful outcomes. It's a great way to practice and improve interpersonal and communicative abilities, as well as to pick up new ones. When we know what we stand for as people, we can begin to lead effectively. Simply said, the values and principles that we live by are the things that are most important to us in life.
+                    </p>
+                        <p class="refl">
+                        
+                        Leadership thrives in environments where it is actively fostered. Leadership entails inspiring, persuading, and guiding others to work toward a common objective, whether that goal is specific to the team or represents the larger mission of the organization. Students benefit greatly from exposure to leadership roles in the classroom, where they can practice developing rapport within groups, articulating their individuality, and leading others to successful outcomes. It's a great way to practice and improve interpersonal and communicative abilities, as well as to pick up new ones. When we know what we stand for as people, we can begin to lead effectively. Simply said, the values and principles that we live by are the things that are most important to us in life.
+                    </p>
+                    </div><br><br><br><br>
+    </div>
 </body>
 </html>
