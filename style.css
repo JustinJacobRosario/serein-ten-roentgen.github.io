@@ -24,6 +24,7 @@ page-bar
     animation-duration: 800ms;
     animation-timing-function: ease-out;
 
+    
 }
 
 /* @keyframes intro {
@@ -48,13 +49,14 @@ page-bar
 }
 
 #background {
-    align-self: baseline;
+    align-self:flex-end;
     position: absolute;
     width: 100%;
     z-index: -1;
     transform: translateZ(-20px) scale(3);
     right: 15px;
     top: 1400px;
+    
     
 }
 #foreground {
@@ -549,10 +551,33 @@ div[id*="img-"] {
     font-size: 400px;
     font-family: 'Noto Serif Display', serif;
     color: rgb(223, 215, 32);
-    text-shadow: 0 0px 30px rgb(223, 215, 32);
+    text-shadow: 0 0px 40px rgb(223, 215, 32);
+
     text-align: center;
+/* 
+    -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: rgb(255, 225, 166); */
+
+    animation-name: fronttext-an;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+    animation-delay: 200ms;
 }
 
+@keyframes fronttext-an {
+    0% {
+        opacity: 0%;
+        transform: translateY(90px);
+    }
+    40% {
+        
+        transform: translateY(-20px);
+    }
+    100% {
+        
+        transform: translateY(0px);
+    }
+}
 
 
 

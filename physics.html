@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Text Reflection using HTML and CSS</title>
+	<style>
+	body
+	{
+		background-image: url(images/morn.jfif);
+        background-position: center;
+        background-size:cover;
+		padding: 0px;
+        margin: 0px;
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+	}
+
+	h2, p {
+		position: absolute;
+        text-align: justify;
+		font-size: 50px;
+        font-family: tahoma, sans-serif;
+        font-weight:00;
+        padding: 0px 200px;
+        line-height: 50px;
+      
+	}
+
+    /* h2, p::before {
+        content: attr(refl);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateX(180deg);
+        line-height: 52px;
+        transform-origin: bottom;
+
+        background: linear-gradient(to top, white, transparent);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        opacity: 0.9;
+
+    } */
+
+    .wrap {
+        height: 100vh;
+        width: 100%;
+        transition: 400ms ease;
+        background-image: url(images/night.jpg);
+        background-position: center;
+        background-size: cover;
+        opacity: 0;
+
+        transition: all 0.8s ease;
+        /* background: skyblue; */
+    }
+    .wrap2 {
+        height: 0vh;
+        width: 100%;
+        transition: 400ms ease;
+        /* background: blue; */
+    }
+
+    .checkbox {
+        position: fixed;
+        z-index: 10;
+    top: 5vh;
+    right: 50%;
+    appearance: none;
+    -webkit-appearance : none;
+    -moz-appearance : none;
+    -o-appearance : none;
+    width: 80px;
+    height: 40px;
+    background: yellow;
+    border-radius: 22px;
+    border: white 4px solid;
+    cursor: pointer;
+    outline: none;
+    scale: 4;
+    box-shadow: inset 0 0px 30px orangered, 0 0px 0px 3px rgba(255, 255, 255, 0.414);
+    }
+
+#def {
+    position: absolute;
+    bottom: 50%;
+    opacity:0; 
+    transition:100ms ease;
+}
+
+    .checkbox::before{
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50px;
+    
+    top: 2px;
+    left: 2px;
+    cursor: pointer;
+    transition: .3s linear;
+}
+
+.checkbox:checked + .wrap{
+  /* background: black; */
+  color: white;
+  text-shadow: 0 0px 40px white;
+}
+.checkbox:checked + .wrap + .wrap2{
+
+  color: white;
+  text-shadow: 0 0px 40px white;
+}
+.checkbox:checked + .wrap #def {
+    opacity:1;
+}
+
+.checkbox:checked + .wrap {
+    opacity:1;
+}
+.checkbox:checked + body {
+    background-image: url(images/night.jpg);
+}
+
+
+/* moving the checkbox circle when it's toggled by the user */
+.checkbox:checked::before{
+    left: 40px;
+}
+/* changing the color of the checkbox when it's toggled */
+.checkbox:checked{
+    background: violet;
+    box-shadow: inset 0 0px 30px indigo, 0 0px 0px 3px rgba(255, 255, 255, 0.414);
+}
+
+    #refl {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: rotateX(180deg);
+        line-height: 50px;
+        
+        opacity: 0.5;
+        transition: 400ms ease;
+        color: white;
+        text-shadow: 0 0px 30px white;
+
+        background: linear-gradient(to top, white, transparent);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        opacity: 0.9;
+    }
+	</style>
+</head>
+<body>
+    <input type="checkbox" class="checkbox">
+    
+    <div class="wrap">
+	<p id="def">
+        People who have faith in the splendor of their dreams are those who will dominate the future. As students, we recognize the importance of taking on leadership roles as a means of developing our skills. Not everyone is born a leader. However, it can be forged through time. Leadership can be developed by oneself through experiences. Hard work and perseverance, just like success in any other endeavor, are what ultimately define a leader; that is the cost we are prepared to incur in pursuit of our vision of progress.</p>
+    <br>
+    </div>
+    <div class="wrap2">
+            <p id="refl">People who have faith in the splendor of their dreams are those who will dominate the future. As students, we recognize the importance of taking on leadership roles as a means of developing our skills. Not everyone is born a leader. However, it can be forged through time. Leadership can be developed by oneself through experiences. Hard work and perseverance, just like success in any other endeavor, are what ultimately define a leader; that is the cost we are prepared to incur in pursuit of our vision of progress.</p>
+        </div>
+</body>
+</html>
