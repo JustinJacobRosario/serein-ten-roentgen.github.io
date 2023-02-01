@@ -5,9 +5,50 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<title>Text Reflection using HTML and CSS</title>
 	<style>
+.popup {
+    background-image: url(images/speech-bubble.png);
+    background-size: cover;
+    height: 90px;
+    width: 400px;
+
+    position: fixed;
+left: 25%;
+top: 3%;
+
+    animation-name: popup-an;
+    animation-duration: 10s;
+    animation-delay: 1s;
+    animation-timing-function: ease;
+
+    opacity: 0;
+    z-index: 24;
+}
+.popup p {
+    padding: 0px 30px 10px 10px;
+    font-size: 20px;
+    line-height: 25px;
+    
+}
+@keyframes popup-an {
+    0% {
+        opacity: 0;
+        
+    }
+    30% {
+        opacity: 1;
+    }
+    70% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+
 	body
 	{
-		background-image: url(images/morn.jfif);
+		background-image: url(images/morn.jpg);
         background-position: center;
         background-attachment: fixed;
         background-size:cover;
@@ -17,6 +58,8 @@
         justify-content: center;
         align-items: center; */
 	}
+
+   
 
 	h2, p {
 		
@@ -74,13 +117,26 @@
         height: 80vh;
         width: 80vw;
         transform: translate(10%, 10vh);
+        box-sizing: border-box;
+        margin-bottom: 10vh;
+        border-radius: 30px;
         
-        margin-bottom: 50vh;
+        animation: bord 5s linear infinite;
         
+    }
+    @keyframes bord {
+        0% {
+            box-shadow: 0px 0px 20px transparent, inset 0px 0px 10px transparent;
+        }
+        50% {
+            box-shadow: 0px 0px 20px white, inset 0px 0px 10px white;
+        }
+        90% {
+            box-shadow: 0px 0px 20px transparent, inset 0px 0px 10px transparent;
+        }
         
     }
     
-
     .checkbox {
         position: fixed;
         z-index: 10;
@@ -109,7 +165,7 @@
 
     font-size: 30px;
     line-height: 30px;
-    
+    scale: 0.95;
 }
 
     .checkbox::before{
@@ -213,12 +269,15 @@
         -webkit-background-clip: text;
         color: transparent;
         opacity: 0.9;
+        scale: 0.95;
     }
 	</style>
 
 
 </head>
 <body>
+    <div class="popup"><p>Click the button to reveal the <br> underlying message of the reflection</p></div>
+
     <input type="checkbox" class="checkbox">
     <div class="wrap">
     </div>
