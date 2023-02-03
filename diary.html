@@ -1,0 +1,939 @@
+<html>
+    <head>
+        <title> Diary Entries by Serein</title>
+    
+        <style>
+/* 
+Table of Contents: 
+
+-general declarations
+-pop-up message
+header banner
+menu-button
+music-button (for mapeh)
+page-bar
+- pages
+- frontpage contents
+
+*/
+
+
+/* General Declarations */
+h1 {
+    padding: 0px;
+    margin: 0px
+}
+.page-content {
+    overflow-y: auto;
+    overflow-x: hidden;
+    perspective: 10px;
+
+    animation-name: intro;
+    animation-duration: 800ms;
+    animation-timing-function: ease-out;
+    
+}
+
+/* @keyframes intro {
+    0% {
+        transform: translate(0px, -300px);
+        scale: 1.05;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        scale:1
+    }
+} */
+
+#page-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    transform-style: preserve-3d;
+    z-index: -1;
+}
+
+#background {
+    align-self:flex-end;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+    transform: translateZ(-20px) scale(3);
+    right: 15px;
+    top: 1400px;
+}
+#foreground {
+    
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+::-webkit-scrollbar-track {
+    background: rgb(201, 196, 177);
+
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(rgb(79, 20, 13), rgb(135, 42, 10),  rgb(167, 95, 26), rgb(167, 95, 26));
+    border: 3px rgb(201, 196, 177) solid;
+    border-radius: 50px;
+   
+}
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    padding: 0px;
+    scroll-behavior: smooth;
+    scroll-padding-top: 50px;
+}
+
+ul {
+    margin: 0px;
+    text-decoration: none;
+}
+p {
+ margin: 0px;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: rgb(188, 68, 16);
+}
+
+/*Pop-up Message*/
+.popup {
+    background-image: url(images/speech-bubble.png);
+    background-size: cover;
+    height: 90px;
+    width: 400px;
+
+    position: fixed;
+right: 55px;
+top: 3%;
+
+    animation-name: popup-an;
+    animation-duration: 10s;
+    animation-delay: 2s;
+    animation-timing-function: ease;
+
+    opacity: 0;
+    z-index: 24;
+}
+.popup p {
+    padding: 10px 30px 10px 10px;
+    font-size: 20px;
+    
+}
+.popup1 {
+    background-image: url(images/speech-bubble1.png);
+    background-size: cover;
+    height: 90px;
+    width: 400px;
+
+    position: fixed;
+left: 75px;
+top: 1%;
+
+    animation-name: popup-an;
+    animation-duration: 10s;
+    animation-delay: 2s;
+    animation-timing-function: ease;
+
+    visibility: hidden;
+    z-index: 24;
+}
+.popup1 p {
+    text-align: right;
+    padding: 10px 30px 60px 10px;
+    font-size: 20px;
+}
+    
+@keyframes popup-an {
+    0% {
+        opacity: 0;
+        visibility: hidden;
+        
+    }
+    30% {
+        opacity: 1;
+        visibility: visible;
+    }
+    70% {
+        opacity: 1;
+        visibility: visible;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+/* Header Banner */
+#header-banner {
+    width: 100%;
+    height: 50px;
+    background: linear-gradient(to right, rgb(164, 54, 11), rgb(208, 150, 63),  rgb(208, 150, 63), rgb(164, 54, 11));
+    background-size: 200% 200%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 12;
+    font-weight: 600;
+    
+
+    animation: header-banner 10s infinite ease-in-out;
+
+    border-bottom: 3px white solid;
+}
+
+
+/* Menu Button */
+.menu-button {
+    list-style: none;
+    
+    
+}
+.menu-button li {
+    list-style: none;
+    
+}
+#menu-but-img {
+    height: 35px;
+    width: 37px;
+    margin: 10px 0px 5px 10px;
+    transition: all 300ms ease;
+}
+
+
+.menu-button li ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    
+    background-color: rgba(199, 194, 176, 90%);
+    margin: -3px 0px 0px 0px;
+    
+    
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 500ms, opacity 150ms linear;
+}
+.menu-button li:hover ul {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+.menu-button li ul li {
+    
+    list-style: none;
+    border-top: rgba(92, 23, 17, 50%) solid 2px;
+    border-left: rgba(92, 23, 17, 90%) solid 30px;
+    height: 48px;
+    padding: 10px 50px 10px 20px;
+
+}
+.menu-button li ul li:nth-child(1) {
+    border-top: none;
+}
+.menu-button li ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    font-family: sans-serif;
+    color: rgb(54, 39, 31);
+    
+    
+}
+.menu-button li a:hover {
+    cursor: pointer;
+    font-size: 21px;
+    display: flex;
+    flex-direction: column;
+}
+.menu-button li a {
+    transition: all 300ms ease;
+}
+
+/* Music-Button */
+.music-button {
+    list-style: none;
+    
+    
+}
+.music-button li {
+    list-style: none;
+    
+}
+
+#music-but-img {
+    height: 40px;
+    width: 40px;
+    margin: 5px 10px 5px 0px;
+    position: absolute;
+    top: 0;
+    right: 0%;
+    transition: all 1s ease;
+}
+#music-but-img:hover {
+    scale: 1.05;
+    rotate: 360deg;
+}
+.music-button li ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 0%;
+    top: 50px;
+    background-color: rgba(199, 194, 176, 90%);
+
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 500ms ease, opacity 150ms linear;
+}
+.music-button li:hover ul {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+}
+.music-button li ul li {
+    
+    list-style: none;
+    border-top: rgba(34, 41, 71, 50%) solid 2px;
+    border-right: rgba(34, 41, 71, 90%) solid 30px;
+
+    padding: 10px 50px 10px 15px;
+
+}
+
+
+
+
+
+
+#page-bar {
+    display: flex;
+    gap: 90px;
+    text-shadow: 0 0px 20px white;
+    transform: translateY(10px);
+    
+}
+#page-bar a {
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 40px;
+    padding: 0px 6px;
+    transition: all 300ms ease;
+    
+}
+
+#home:hover {
+    text-decoration: none;
+    scale: 1.08;
+    color: snow;
+}
+#about:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
+#port:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
+#blog:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
+.gall-menu:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
+
+.gall-menu {
+    list-style: none;
+    transition: all 300ms ease;
+    color: snow;
+}
+.gall-menu li {
+    list-style: none;
+    
+    padding-bottom: 20px;
+}
+
+.gall-menu li ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 200px;
+
+
+    background-color: rgba(199, 194, 176, 50%);
+    
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 800ms, opacity 250ms linear;
+}
+.gall-menu li:hover ul {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    margin-top: 15px;
+}
+.gall-menu li ul li {
+    
+    list-style: none;
+    border: white solid 3px;
+    height: 48px;
+    
+
+}
+.gall-menu li ul li:nth-child(1) {
+    border-top: none;
+    
+    
+}
+.gall-menu li ul li a {
+    text-decoration: none;
+    font-size: 15px;
+    font-family: sans-serif;
+    margin-top: 10px;
+    
+    
+}
+.gall-menu li a:hover {
+    cursor: pointer;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+}
+.gall-menu li a {
+    transition: all 300ms ease;
+}
+
+/* borderline */
+
+.blog-menu:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
+
+.blog-menu {
+    list-style: none;
+    transition: all 300ms ease;
+    color: snow;
+}
+.blog-menu li {
+    list-style: none;
+    
+    padding-bottom: 20px;
+}
+
+.blog-menu li ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 200px;
+
+
+    background-color: rgba(199, 194, 176, 50%);
+    
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 800ms, opacity 250ms linear;
+}
+.blog-menu li:hover ul {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    margin-top: 15px;
+}
+.blog-menu li ul li {
+    
+    list-style: none;
+    border: white solid 3px;
+    height: 48px;
+    
+
+}
+.blog-menu li ul li:nth-child(1) {
+    border-top: none;
+    
+    
+}
+.blog-menu li ul li a {
+    text-decoration: none;
+    font-size: 15px;
+    font-family: sans-serif;
+    margin-top: 10px;
+    
+    
+}
+.blog-menu li a:hover {
+    cursor: pointer;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+}
+.blog-menu li a {
+    transition: all 300ms ease;
+}
+
+
+#reference:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
+#page-bar a:link {
+    color: white;
+}
+#page-bar a:visited {
+    color: white;
+}
+
+
+
+@keyframes header-banner {
+    0%{
+background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%
+    }
+} 
+
+
+#eng-tab:hover ~ #img-eng {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+#ap-tab:hover ~ #img-ap {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+#phy-tab:hover ~ #img-physics {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+#nuc-tab:hover ~ #img-nuclear {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+#jor-tab:hover ~ #img-journ {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+#esp-tab {
+    font-size: 6px;
+    line-height: 12px;
+}
+#esp-tab:hover ~ #img-speech {
+    scale: 1.1;
+    visibility: visible;
+    opacity: 1;
+}
+
+div[id*="img-"] {
+    border-left: brown 20px;
+    border-style:groove;
+    opacity: 0;
+}
+
+#img-eng {
+    height: 260px;
+    width: 476px;
+    background:url(https://www.itepexam.com/wp-content/uploads/2021/01/English-Grammar.jpg);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -35px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+#img-ap {
+    height: 260px;
+    width: 476;
+    background:url(https://blogger.googleusercontent.com/img/a/AVvXsEitln7SzOk6pW4yIHReu8WVIC_wl_8MQmS_bkIrb9xGSN41s801nYSvOmYlhjSJhf2r46oKTe6_IPdgFLIEoY9_dx-roJDecQ5QIDQ8fLAbxlfjMUxZOjNTKgx5KVpdmoADhogsh01gJoe9DWGH4QTRaHw7IWTW2bhhFEl-fLXd23-9yTfBWk7N7oS2Ew=w400-h225);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -74px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+#img-physics {
+    height: 260px;
+    width: 476;
+    background:url(images/p6.JPG);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -118px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+#img-nuclear {
+    height: 260px;
+    width: 476;
+    background:url(https://cdn1.byjus.com/wp-content/uploads/2018/12/nuclear-chemistry.png);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -162px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+#img-journ {
+    height: 260px;
+    width: 476;
+    background:url(images/engjournbg.JPG);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -206px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+#img-speech {
+    height: 260px;
+    width: 476;
+    background:url(images/espbg.JPG);
+    background-size: contain;
+    position:fixed;
+    transform: translate(310px, -250px);
+    transition: all 400ms ease;
+    visibility: hidden;
+    opacity: 0;
+}
+
+/* frontpage contentss */
+
+
+.front-content {
+    height: auto;
+}
+#front-text {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+}
+#front-text p {
+    display: inline-block;
+    font-size: 400px;
+    font-family: 'Noto Serif Display', serif;
+    color: rgb(223, 215, 32);
+    text-shadow: 0 0px 40px rgb(223, 215, 32);
+
+    text-align: center;
+/* 
+    -webkit-text-stroke-width: 3px;
+  -webkit-text-stroke-color: rgb(255, 225, 166); */
+
+    animation-name: fronttext-an;
+    animation-duration: 1.5s;
+    animation-timing-function: ease;
+    animation-delay: 200ms;
+}
+
+@keyframes fronttext-an {
+    0% {
+        opacity: 0%;
+        transform: translateY(90px);
+    }
+    40% {
+        
+        transform: translateY(-20px);
+    }
+    100% {
+        
+        transform: translateY(0px);
+    }
+}
+
+            body {
+                background: url(images/bgdia.jpg);
+                background-size: cover;
+                background-position: center;
+            }
+          .wrap {
+    height: 90vh;
+    width: 100%;
+    /* background-color: khaki; */
+
+}
+
+.arow1 {
+    height: 40vh;
+    width: 100%;
+    /* background-color: mediumspringgreen; */
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+    align-items: center;
+}
+.artkyth, .artjecob, .arttasha, .arttine, .artalyssa, .artcz{
+    height: 35vh;
+    width: 15%;
+    background-color: darkkhaki;
+    border: white 4px solid;
+    border-radius: 10px;
+    transition: all 500ms ease;
+}
+.artkyth:hover, .artjecob:hover, .arttasha:hover, .arttine:hover, .artalyssa:hover, .artcz:hover {
+    scale: 2.0;
+    box-shadow: 0 0px 40px white, inset 0 0px 40px white;
+    border: white 6px solid;
+
+}
+.artkyth{
+    background: url(images/kythdia.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.artkyth:hover{
+    transform: translate(0px, 25%);
+    width: 350px;
+}
+
+.kythmsg {
+    text-align: center;
+    height: 20px;
+    width: 110%;
+    background: rgba(255, 255, 255, 60%);
+    text-shadow: 0 0px 20px white;
+    opacity: 0;
+}
+.artkyth:hover .kythmsg{
+    scale: 0.8;
+    position: absolute;
+    left: 95%;
+    top: 51.5%;
+    opacity: 1;
+}
+.artjecob{
+    background: url(images/jacobdia.jpg);
+    background-position: center;
+    background-size: cover;
+    
+}
+.artjecob:hover{
+    transform: translate(0px, 25%);
+    width: 350px;
+}
+
+.jecobmsg {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    background: rgba(255, 255, 255, 60%);
+    opacity: 0;
+}
+.artjecob:hover .jecobmsg{
+    scale: 0.8;
+    position: absolute;
+    left: 95%;
+    top: 46.5%;
+    opacity: 1;
+    
+}
+
+.arttasha{
+    background: url(images/tashadia.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.arttasha:hover{
+    transform: translate(0px, 25%);
+    width: 350px;
+    
+}
+
+.tashamsg {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    background: rgba(255, 255, 255, 60%);
+    text-shadow: 0 0px 20px white;
+    opacity: 0;
+    
+}
+.arttasha:hover .tashamsg{
+    scale: 0.8;
+    position: absolute;
+ right: 95%;
+    top: 46.5%;
+    opacity: 1;
+}
+.arow2 {
+    height: 45vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 3%;
+    align-items: center;
+}
+.arttine{
+    background: url(images/tinedia.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.arttine:hover{
+    transform: translate(0px, -25%);
+    width: 350px;
+    
+}
+
+.tinemsg {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    background: rgba(255, 255, 255, 60%);
+    text-shadow: 0 0px 20px white;
+    opacity: 0;
+    
+}
+.arttine:hover .tinemsg{
+    scale: 0.8;
+    position: absolute;
+ left: 95%;
+    top: 40.5%;
+    opacity: 1;
+}
+.artalyssa{
+    background: url(images/alyssadia.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.artalyssa:hover{
+    transform: translate(0px, -25%);
+    width: 350px;
+}
+
+.alyssamsg {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    background: rgba(255, 255, 255, 60%);
+    text-shadow: 0 0px 20px white;
+    opacity: 0;
+    
+}
+.artalyssa:hover .alyssamsg{
+    scale: 0.8;
+    position: absolute;
+    left: 95%;
+    top: 46.6%;
+    opacity: 1;
+}
+.artcz{
+    background: url(images/czdia.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.artcz:hover{
+    transform: translate(0px, -25%);
+    width: 350px;
+}
+
+.czmsg {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    background: rgba(255, 255, 255, 60%);
+    text-shadow: 0 0px 20px white;
+    opacity: 0;
+    
+}
+.artcz:hover .czmsg{
+    scale: 0.8;
+    position: absolute;
+    right: 95%;
+    top: 40.5%;
+    opacity: 1;
+}  
+        </style>
+    </head>
+    <body> 
+
+        <header><div id="header-banner">
+            <div id="left-head"><ul class="menu-button"><li><img src="images/menu-but.png" id="menu-but-img">
+                <ul>
+                    <!-- Dropdown Menu Sections CP -->
+                    <li id="eng-tab"><a href="mapeh-vid.html#box3">📚 English</a></li>
+                    <div id="img-eng"></div>
+                    <li id="ap-tab"><a href="mapeh-vid.html#box1">📜 Araling Panlipunan</a></li>
+                    <div id="img-ap"></div>
+                    <li id="phy-tab"><a href="physics.html">💡 Physics</a></li>
+                    <div id="img-physics"></div>
+                    <li id="nuc-tab"><a href="mapeh-vid.html#box2">⚛ Nuclear Chemistry</a></li>
+                    <div id="img-nuclear"></div>
+                    <li id="jor-tab"><a href="blog.html">📰 English Journalism</a></li>
+                    <div id="img-journ"></div>
+                    <li id="esp-tab"><a href="#fifthhpage">⚖ Edukasyon sa <br>Pagpapakatao</a></li>
+                    <div id="img-speech"></div>
+                    
+                </ul></li></ul></div>
+            
+                <div id="page-bar"><a id="home" href="index.html">HOME</a>
+                 <ul class="blog-menu"><li><div>BLOG</div>
+                     <ul>
+                         <li id="liham"><a href="#fifthhpage">ESP:LIHAM</a></li>
+                         <li id="blog"><a href="diary.html">DIARIES</a></li>
+                     </ul>
+                 </li>
+                 </ul>
+                <a id="about" href="#fourthpage">ABOUT US</a>
+                <a id="port" href="blog.html">PORTFOLIO</a>
+                <ul class="gall-menu"><li><div>GALLERY</div>
+                 <ul>
+                     <li id="art-ex"><a href="#thirdpage">ARTWORK EXHIBIT</a></li>
+                     <li id="vid-col"><a href="mapeh-vid.html">VIDEO COLLECTION</a></li>
+                 </ul>
+             </li>
+             </ul>
+                
+                <a id="reference" href="reference.html">PORTFOLIO</a></div><div id="right-head"><ul class="music-button"><li><img src="images/music-but.png" id="music-but-img"><ul><li><iframe width="560" height="315" src="https://www.youtube.com/embed/BxNrahSGo3Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></li>
+                    <div id="music-prompt">Music Playing</div>
+                </ul></li></ul></div></div></header>
+        <div class="wrap" style="transform: translate(0px, 40px);">
+        
+            <div class="arow1">
+                <div class="artkyth">
+                </div>
+                <div class="artjecob">
+                </div>
+                <div class="arttasha">
+                </div>
+
+            </div>
+            <div class="arow2">
+                <div class="arttine">
+                </div>
+                <div class="artalyssa">
+                </div>
+                <div class="artcz">
+                </div>
+            </div>
+        </div>
+            </body>
+</html>

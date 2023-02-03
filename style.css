@@ -1,5 +1,5 @@
 
-/* Pages */
+/* s */
 #frontpage {
     height: 100vh;
     border-bottom: 3px black solid;
@@ -8,20 +8,81 @@
     
     height: 100vh;
     background: rgba(56, 10, 5, 70%);
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+#secondpage:hover .gwrap .type {
+    animation: typing 3s steps(20) infinite alternate,
+                blink 0.7s infinite;
+}
+.gwrap {
+    width: max-content;
+}
+.type {
+    color: white;
+    font-size: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 1px solid white;
+    padding-right: 5px;
+    font-weight: 600;
+    font-family: monospace;
+    
+}
+.gwrap1 {
+    color: white;
+    font-size: 30px;
+    font-family: monospace;
+    padding-top: 30px;
+    font-weight: 200;
+    width: 80%;
+}
+@keyframes typing {
+    0% {
+        width: 0%;
+        visibility: hidden;
+    }
+    50% {
+        width: 100%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+@keyframes blink {
+    50%{
+        border-color: transparent;
+    }
+    100% {
+        border-color: white;
+    }
 }
 #thirdpage {   
     height: 100vh;
     background: rgba(233, 197, 93, 70%);
-}
-#fourthpage {   
-    height: 100vh;
-    background: rgba(183, 94, 33, 70%);
     padding-top: 20px;
     position: relative;
 }
-#fourthpage h1 {
+#fourthpage {   
+    height: 100vh;
+    background: url(images/bgbg.jpg);
+    background-size: cover;
+    background-position: bottom;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#thirdpage h1 {
     text-align: center;
-    
+    font-family: 'Goblin One', cursive;
+    text-transform: uppercase;
+    color: white;
+    text-shadow: 0 0 20px orange;
 }
 
 .wrap {
@@ -30,22 +91,14 @@
     /* background-color: khaki; */
 
 }
-.x {
-    position: absolute;
-    top: 5%;
-    right: 5%;
-    background-color: white;
-    opacity: ;
 
-    transition: all 300ms ease;
-}
-
-.row1 {
-    height: 45vh;
+.arow1 {
+    height: 40vh;
     width: 100%;
     /* background-color: mediumspringgreen; */
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 3%;
     align-items: center;
 }
 .artkyth, .artjecob, .arttasha, .arttine, .artalyssa, .artcz{
@@ -54,61 +107,153 @@
     background-color: darkkhaki;
     border: white 4px solid;
     border-radius: 10px;
-    transition: all 300ms ease;
+    transition: all 500ms ease;
 }
 .artkyth:hover, .artjecob:hover, .arttasha:hover, .arttine:hover, .artalyssa:hover, .artcz:hover {
-    scale: 2.5;
+    scale: 2.0;
     box-shadow: 0 0px 40px white, inset 0 0px 40px white;
     border: white 6px solid;
 
 }
 .artkyth{
-    
+    background: url(images/art-kyth.png);
+    background-position: center;
+    background-size: cover;
+}
+.artkyth:hover{
+    transform: translate(0px, 25%);
+    width: 350px;
+}
+
+.kythmsg {
+    text-align: center;
+    height: 20px;
+    width: 110%;
+    background: rgba(255, 255, 255, 60%);
+    text-shadow: 0 0px 20px white;
+    opacity: 0;
+}
+.artkyth:hover .kythmsg{
+    scale: 0.8;
+    position: absolute;
+    left: 95%;
+    top: 51.5%;
+    opacity: 1;
 }
 .artjecob{
     background: url(images/art-cob.jpg);
     background-position: center;
     background-size: cover;
+    
 }
 .artjecob:hover{
     transform: translate(0px, 25%);
+    height: 300px;
 }
 
 .jecobmsg {
     text-align: center;
-    height: 40px;
+    height: 20px;
     width: 100%;
-    background-color: white;
-    text-shadow: 0 0px 20px white;
+    background: rgba(255, 255, 255, 60%);
     opacity: 0;
 }
 .artjecob:hover .jecobmsg{
     scale: 0.8;
     position: absolute;
     left: 95%;
+    top: 46.5%;
     opacity: 1;
-}
-.artjecob:hover ~ .x {
-    scale: 1.2;
-    opacity: 1;
-    transform: translateX(30px);
-}
-.arttasha{
     
 }
-.row2 {
+
+.arttasha{
+    background: url(images/art-tasha.png);
+    background-position: center;
+    background-size: cover;
+}
+.arttasha:hover{
+    transform: translate(0px, 25%);
+    height: 300px;
+    
+}
+
+.tashamsg {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    background: rgba(255, 255, 255, 60%);
+    text-shadow: 0 0px 20px white;
+    opacity: 0;
+    
+}
+.arttasha:hover .tashamsg{
+    scale: 0.8;
+    position: absolute;
+ right: 95%;
+    top: 46.5%;
+    opacity: 1;
+}
+.arow2 {
     height: 45vh;
     width: 100%;
-    background-color: orange;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 3%;
     align-items: center;
 }
 .arttine{
+    background: url(images/art-tine.png);
+    background-position: center;
+    background-size: cover;
+}
+.arttine:hover{
+    transform: translate(0px, -25%);
+    width: 350px;
     
 }
-.artalyssa{
+
+.tinemsg {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    background: rgba(255, 255, 255, 60%);
+    text-shadow: 0 0px 20px white;
+    opacity: 0;
     
+}
+.arttine:hover .tinemsg{
+    scale: 0.8;
+    position: absolute;
+ left: 95%;
+    top: 40.5%;
+    opacity: 1;
+}
+.artalyssa{
+    background: url(images/art-alyssa.png);
+    background-position: center;
+    background-size: cover;
+}
+.artalyssa:hover{
+    transform: translate(0px, -25%);
+    height: 300px;
+}
+
+.alyssamsg {
+    text-align: center;
+    height: 20px;
+    width: 100%;
+    background: rgba(255, 255, 255, 60%);
+    text-shadow: 0 0px 20px white;
+    opacity: 0;
+    
+}
+.artalyssa:hover .alyssamsg{
+    scale: 0.8;
+    position: absolute;
+    left: 95%;
+    top: 46.6%;
+    opacity: 1;
 }
 .artcz{
     background: url(images/art-cz.png);
@@ -116,36 +261,243 @@
     background-size: cover;
 }
 .artcz:hover{
-    transform: translate(-90%, -25%);
+    transform: translate(0px, -25%);
+    
 }
 
 .czmsg {
     text-align: center;
-    height: 40px;
+    height: 20px;
     width: 100%;
-    background-color: white;
+    background: rgba(255, 255, 255, 60%);
     text-shadow: 0 0px 20px white;
     opacity: 0;
+    
 }
 .artcz:hover .czmsg{
     scale: 0.8;
     position: absolute;
-    left: 95%;
+    right: 95%;
+    top: 40.5%;
     opacity: 1;
 }
-.view {
-    height: 90vh;
-    width: 40%;
-    background-color: skyblue;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.view img {
-    height: 80vh;
-    visibility: hidden;
+
+.wrapper {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
 }
 
+.row1 {
+    
+    z-index: 1;
+    width: 100%;
+    float: right;
+    height: 45vh;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.row2 {
+    
+    z-index: 1;
+    width: 100%;
+    height: 55vh;
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    
+}
+.txt1 {
+    width: 5%;
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 60px;
+    text-shadow: 0 0px 10px orange;
+    padding-left: 10px;
+    border-left: 5px rgba(255, 255, 255, 0.966) solid;
+    color: rgba(255, 255, 255, 0.966);
+    
+}
+.txt2 {
+    margin-left: -100px;
+    width: 15%;
+    font-size: 45px;
+    text-align: right;
+    font-weight: 600;
+    line-height: 60px;
+    text-shadow: 0 0px 10px orange;
+    padding-right:10px;
+    border-right: 5px rgba(255, 255, 255, 0.966) solid;
+    color: rgba(255, 255, 255, 0.966);
+    
+}
+.gradient {
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    background: linear-gradient(45deg, rgba(255, 205, 25, 0.593), rgba(255, 115, 8, 0.593), rgba(255, 63, 25, 0.593));
+    z-index: 0;
+}
+
+.glass1, .glass2, .glass3, .glass4, .glass5, .glass6 {
+    height: 300px;
+    width: 200px;
+    backdrop-filter: blur(2px);
+    border-radius: 50px;
+    
+    border-top: 3px solid rgba(255, 255, 255, 0.481);
+    border-left: 3px solid rgba(255, 255, 255, 0.481);
+    box-shadow: 0px 0px 60px black;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    scale: 1;
+    transition: all 200ms ease;
+
+}
+
+.glass1:hover, .glass2:hover, .glass3:hover, .glass4:hover, .glass5:hover, .glass6:hover {
+    scale: 1.2;
+    box-shadow: 0px 0px 5px white;
+    backdrop-filter: blur(7px);
+}
+.glass1:hover .pictine{
+    scale: 1.1;
+    box-shadow: 0px 0px 5px white;
+}
+.pictine {
+    height: 150px;
+    width: 150px;
+    background: url(images/tine.jpg);
+    background-size: cover;
+    border-radius: 100%;
+    scale: 0.9;
+    transition: all 200ms ease;
+}
+.glass2:hover .picjecob{
+    scale: 1.1;
+    box-shadow: 0px 0px 5px white;
+}
+.glass3:hover .pictasha{
+    scale: 1.1;
+    box-shadow: 0px 0px 5px white;
+}
+.pictasha {
+    height: 150px;
+    width: 150px;
+    background: url(images/tasha.jpg);
+    background-size: cover;
+    border-radius: 100%;
+    scale: 0.9;
+    transition: all 200ms ease;
+}
+.glass4:hover .picalyssa{
+    scale: 1.1;
+    box-shadow: 0px 0px 5px white;
+}
+.picalyssa {
+    height: 150px;
+    width: 150px;
+    background: url(images/alyssa.jpg);
+    background-size: cover;
+    border-radius: 100%;
+    scale: 0.9;
+    transition: all 200ms ease;
+}
+.glass5:hover .pickyth{
+    scale: 1.1;
+    box-shadow: 0px 0px 5px white;
+}
+.pickyth {
+    height: 150px;
+    width: 150px;
+    background: url(images/kyth.jpg);
+    background-size: cover;
+    border-radius: 100%;
+    scale: 0.9;
+    transition: all 200ms ease;
+}
+.glass6:hover .piccz{
+    scale: 1.1;
+    box-shadow: 0px 0px 5px white;
+}
+.piccz {
+    height: 150px;
+    width: 150px;
+    background: url(images/cz.jpg);
+    background-size: cover;
+    border-radius: 100%;
+    scale: 0.9;
+    transition: all 200ms ease;
+}
+.picjecob {
+    height: 150px;
+    width: 150px;
+    background: url(images/jecob.JPG);
+    background-size: cover;
+    border-radius: 100%;
+    scale: 0.9;
+    transition: all 200ms ease;
+}
+.name {
+    height:20%;
+    width: 80%;
+
+    margin: 15px;
+
+    text-align: center;
+    font-size: 20px;
+    font-weight: 500;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px white;
+    text-shadow: 0px 0px 5px white;
+    text-transform: capitalize;
+
+    border-bottom: 3px white solid;
+}
+.info {
+    height:10%;
+    width: 80%;
+
+    margin: -10px 0px 15px 0px;
+
+    
+    font-size: 12px;
+    color: white;
+    text-transform: capitalize;
+    font-weight: 500;
+    color: rgba(255, 255, 255, 0.919);
+}
+
+#fifthhpage h1 {
+    text-align: center;
+    color: white;
+    position: relative;
+    top: 40px;
+    font-size: 60px;
+}
+#diary {
+    background: url(images/diary.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 2000px;
+    scale: 0.8;
+}
+#diary1 {
+    background: url(images/diary1.jpg);
+    background-position: center;
+    background-size: cover;
+    width: 100%;
+    height: 2000px;
+    scale: 0.8;
+}
 
 
 

@@ -6,6 +6,11 @@
 
 p {
  margin: 0px;
+ display: block;
+ position: relative;
+ left: 20px;
+ line-height: 60px;
+ font-size: 30px;
 }
 body {
     background-color: rgb(224, 223, 216);
@@ -17,10 +22,7 @@ body {
     
     height: 780px;
 }
-.secondpage {
-    background-color: rgb(184, 183, 176);
-    height: 780px;
-}
+
 .thirdpage {   
     height: 780px;
 }
@@ -92,29 +94,27 @@ ngjn
 
 
 
-.wrapper {
-    
-    display: 
-}
 .text-content {
     text-align: justify;
     padding: 10px 60px;
     background-color: rgb(214, 211, 201);
     border-radius: 30px;
-    height: 570px;
+    height: 400vh;
+    display: flex;
+    flex-direction: column;
     
 }
 
 h1 {
     text-align: center;
-}
-
-a {
-    font-family: Tahoma, sans-serif;
-    text-decoration: none;
-    transition: all 500ms ease;
     
 }
-a:hover {
-    font-size: 105%;
+
+h2 {
+    margin-left: 10%;
+    font-size: 60px;
+}
+.wrapperism {
+    display: flex;
+    margin-left: 10%;
 }

@@ -1,15 +1,32 @@
+/* 
+Table of Contents: 
+
+-general declarations
+-pop-up message
+header banner
+menu-button
+music-button (for mapeh)
+page-bar
+- pages
+- frontpage contents
+
+*/
+
+
 /* General Declarations */
-#page-content {
-    position: relative;
-    height: 100vh;
+h1 {
+    padding: 0px;
+    margin: 0px
+}
+.page-content {
     overflow-y: auto;
     overflow-x: hidden;
     perspective: 10px;
-    z-index: 1;
+
     animation-name: intro;
     animation-duration: 800ms;
     animation-timing-function: ease-out;
-
+    
 }
 
 /* @keyframes intro {
@@ -34,14 +51,13 @@
 }
 
 #background {
-    align-self: baseline;
+    align-self:flex-end;
     position: absolute;
     width: 100%;
     z-index: -1;
     transform: translateZ(-20px) scale(3);
     right: 15px;
     top: 1400px;
-    
 }
 #foreground {
     
@@ -76,7 +92,6 @@
 ul {
     margin: 0px;
     text-decoration: none;
-    
 }
 p {
  margin: 0px;
@@ -84,6 +99,7 @@ p {
 body {
     margin: 0;
     padding: 0;
+    background-color: rgb(188, 68, 16);
 }
 
 /*Pop-up Message*/
@@ -110,19 +126,47 @@ top: 3%;
     font-size: 20px;
     
 }
+.popup1 {
+    background-image: url(images/speech-bubble1.png);
+    background-size: cover;
+    height: 90px;
+    width: 400px;
+
+    position: fixed;
+left: 75px;
+top: 1%;
+
+    animation-name: popup-an;
+    animation-duration: 10s;
+    animation-delay: 2s;
+    animation-timing-function: ease;
+
+    visibility: hidden;
+    z-index: 24;
+}
+.popup1 p {
+    text-align: right;
+    padding: 10px 30px 60px 10px;
+    font-size: 20px;
+}
+    
 @keyframes popup-an {
     0% {
         opacity: 0;
+        visibility: hidden;
         
     }
     30% {
         opacity: 1;
+        visibility: visible;
     }
     70% {
         opacity: 1;
+        visibility: visible;
     }
     100% {
         opacity: 0;
+        visibility: hidden;
     }
 }
 /* Header Banner */
@@ -293,24 +337,34 @@ top: 3%;
     color: snow;
     scale: 1.08;
 }
-.accom-menu:hover {
+#port:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
+#blog:hover {
+    text-decoration: none;
+    color: snow;
+    scale: 1.08;
+}
+.gall-menu:hover {
     text-decoration: none;
     color: snow;
     scale: 1.08;
 }
 
-.accom-menu {
+.gall-menu {
     list-style: none;
     transition: all 300ms ease;
     color: snow;
 }
-.accom-menu li {
+.gall-menu li {
     list-style: none;
     
     padding-bottom: 20px;
 }
 
-.accom-menu li ul {
+.gall-menu li ul {
     display: flex;
     flex-direction: column;
     position: absolute;
@@ -323,13 +377,13 @@ top: 3%;
     opacity: 0;
     transition: visibility 800ms, opacity 250ms linear;
 }
-.accom-menu li:hover ul {
+.gall-menu li:hover ul {
     display: block;
     visibility: visible;
     opacity: 1;
     margin-top: 15px;
 }
-.accom-menu li ul li {
+.gall-menu li ul li {
     
     list-style: none;
     border: white solid 3px;
@@ -337,12 +391,12 @@ top: 3%;
     
 
 }
-.accom-menu li ul li:nth-child(1) {
+.gall-menu li ul li:nth-child(1) {
     border-top: none;
     
     
 }
-.accom-menu li ul li a {
+.gall-menu li ul li a {
     text-decoration: none;
     font-size: 15px;
     font-family: sans-serif;
@@ -350,20 +404,86 @@ top: 3%;
     
     
 }
-.accom-menu li a:hover {
+.gall-menu li a:hover {
     cursor: pointer;
     font-size: 17px;
     display: flex;
     flex-direction: column;
 }
-.accom-menu li a {
+.gall-menu li a {
     transition: all 300ms ease;
 }
-#gallery:hover {
+
+/* borderline */
+
+.blog-menu:hover {
     text-decoration: none;
     color: snow;
     scale: 1.08;
 }
+
+.blog-menu {
+    list-style: none;
+    transition: all 300ms ease;
+    color: snow;
+}
+.blog-menu li {
+    list-style: none;
+    
+    padding-bottom: 20px;
+}
+
+.blog-menu li ul {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    width: 200px;
+
+
+    background-color: rgba(199, 194, 176, 50%);
+    
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 800ms, opacity 250ms linear;
+}
+.blog-menu li:hover ul {
+    display: block;
+    visibility: visible;
+    opacity: 1;
+    margin-top: 15px;
+}
+.blog-menu li ul li {
+    
+    list-style: none;
+    border: white solid 3px;
+    height: 48px;
+    
+
+}
+.blog-menu li ul li:nth-child(1) {
+    border-top: none;
+    
+    
+}
+.blog-menu li ul li a {
+    text-decoration: none;
+    font-size: 15px;
+    font-family: sans-serif;
+    margin-top: 10px;
+    
+    
+}
+.blog-menu li a:hover {
+    cursor: pointer;
+    font-size: 17px;
+    display: flex;
+    flex-direction: column;
+}
+.blog-menu li a {
+    transition: all 300ms ease;
+}
+
+
 #reference:hover {
     text-decoration: none;
     color: snow;
@@ -416,7 +536,11 @@ background-position: 0 50%;
     visibility: visible;
     opacity: 1;
 }
-#spe-tab:hover ~ #img-speech {
+#esp-tab {
+    font-size: 6px;
+    line-height: 12px;
+}
+#esp-tab:hover ~ #img-speech {
     scale: 1.1;
     visibility: visible;
     opacity: 1;
@@ -453,7 +577,7 @@ div[id*="img-"] {
 #img-physics {
     height: 260px;
     width: 476;
-    background:url(https://images.theconversation.com/files/191827/original/file-20171025-25516-g7rtyl.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=675.0&fit=crop);
+    background:url(images/p6.JPG);
     background-size: contain;
     position:fixed;
     transform: translate(310px, -118px);
@@ -475,7 +599,7 @@ div[id*="img-"] {
 #img-journ {
     height: 260px;
     width: 476;
-    background:url(https://www.rappler.com/tachyon/2020/07/being-a-journalist.jpg);
+    background:url(images/engjournbg.JPG);
     background-size: contain;
     position:fixed;
     transform: translate(310px, -206px);
@@ -486,7 +610,7 @@ div[id*="img-"] {
 #img-speech {
     height: 260px;
     width: 476;
-    background:url(https://www.learner.net/z-media/2021/09/42-scaled.jpg);
+    background:url(images/espbg.JPG);
     background-size: contain;
     position:fixed;
     transform: translate(310px, -250px);
@@ -506,7 +630,7 @@ div[id*="img-"] {
   background-size: cover;
 }
 #box2 {
-    background:url(images/vidbg2.jfif);
+    background:url(images/vidbg6.jfif);
     height: 100%;
   background-attachment: fixed;
   background-position: center;
@@ -522,12 +646,22 @@ div[id*="img-"] {
   background-size: cover;
 }
 #box4 {
-    background:url(images/vidbg4.jfif);
-    height: 100%;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    width: 100%;
+   
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+#mgapre {
+    display: flex;
+    justify-content: space-evenly;
+    
+}
+pre {
+    margin: 20px 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
 }
 #box5 {
     background:url(images/vidbg5.jfif);
@@ -549,8 +683,38 @@ div[id*="img-"] {
 
 .wrapper {
     margin-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
- margin: 0;
+ margin: 5px 0px 5px 0px;
+ color: white;
+}
+video {
+    box-shadow: 0px 0px 20px black;
+}
+
+.eng {
+    height: 650px;
+    width: 1105px;
+    background: url(images/eng-vid.JPG);
+    background-position: center;
+    background-size: cover;
+}
+.nc {
+    height: 650px;
+    width: 1105px;
+    background: url(images/vidbg2.jfif);
+    background-position: center;
+    background-size: cover;
+}
+.ap {
+    height: 650px;
+    width: 1105px;
+    background: url(images/ap.JPG);
+    background-position: center;
+    background-size: cover;
 }
